@@ -1,8 +1,11 @@
+import { DialogService } from './../dialog.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClientService } from 'src/app/services/common/http-client.service';
 import { Component, Input } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SpinnerType } from '../../../base/base.component';
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {
   FileUploadDialogComponent,
@@ -19,7 +22,8 @@ export class FileUploadComponent {
     private httpClientService: HttpClientService,
     private toastr: ToastrService,
     private dialog: MatDialog,
-    private dialogService: MatDialog
+    private dialogService: DialogService,
+    private spinner: NgxSpinnerService
   ) {}
 
   public files: NgxFileDropEntry[];
@@ -34,27 +38,45 @@ export class FileUploadComponent {
         fileData.append(_file.name, _file, file.relativePath);
       });
     }
-    this.dialogService.openDialogs(() => {
-      this.httpClientService
-        .post(
-          {
-            controller: this.options.controller,
-            action: this.options.action,
-            queryString: this.options.queryString,
-            headers: new HttpHeaders({ responseType: 'blob' }),
-          },
-          fileData
-        )
-        .subscribe(
-          (data) => {},
-          (errorResponse: HttpErrorResponse) => {
-            if (this.options.isAdminPage) {
-              this.toastr.success('Success');
-            } else {
-              this.toastr.success(' Success For Admin');
+
+    this.dialogService.openDialog({
+      componentType: FileUploadDialogComponent,
+      data: FileUploadDialogState.Yes,
+      afterClosed: () => {
+        this.spinner.show(SpinnerType.BallAtom);
+        this.httpClientService
+          .post(
+            {
+              controller: this.options.controller,
+              action: this.options.action,
+              queryString: this.options.queryString,
+              headers: new HttpHeaders({ responseType: 'blob' }),
+            },
+            fileData
+          )
+          .subscribe(
+            (data) => {
+              const message: string = 'Dosyalar başarıyla yüklenmiştir.';
+              this.spinner.hide(SpinnerType.BallAtom);
+              if (this.options.isAdminPage) {
+                this.toastr.success(message);
+              } else {
+                this.toastr.success('Success');
+              }
+            },
+            (errorResponse: HttpErrorResponse) => {
+              const message: string =
+                'Dosyalar yüklenirken beklenmeyen bir hatayla karsilasilmistir.';
+
+              this.spinner.hide(SpinnerType.BallAtom);
+              if (this.options.isAdminPage) {
+                this.toastr.error(message);
+              } else {
+                this.toastr.error('Error');
+              }
             }
-          }
-        );
+          );
+      },
     });
   }
 }

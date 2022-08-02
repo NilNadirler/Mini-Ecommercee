@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ssz2pBrIr2wP8DHGNL2i8wDc0lk1pdx16XEPXXoFsSQ=",
+  "Hash": "FNASvb8NPrAPRw30Peb889nxhfEa1vKy0iHwz8RSP20=",
   "Source": "ETicaretAPI.API",
   "BasePath": "_content/ETicaretAPI.API",
   "Mode": "Default",
@@ -10,10 +10,45 @@
     {
       "Name": "ETicaretAPI.API\\wwwroot",
       "Source": "ETicaretAPI.API",
-      "ContentRoot": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\wwwroot\\",
       "BasePath": "_content/ETicaretAPI.API",
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\wwwroot\\photo-images\\110000004663653.jpg",
+      "SourceId": "ETicaretAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "BasePath": "_content/ETicaretAPI.API",
+      "RelativePath": "photo-images/110000004663653.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\photo-images\\110000004663653.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\wwwroot\\photo-images\\nilnadiler.jpg",
+      "SourceId": "ETicaretAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "BasePath": "_content/ETicaretAPI.API",
+      "RelativePath": "photo-images/nilnadiler.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\photo-images\\nilnadiler.jpg"
+    }
+  ]
 }

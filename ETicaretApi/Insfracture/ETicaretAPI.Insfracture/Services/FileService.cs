@@ -1,4 +1,5 @@
-﻿using ETicaretAPI.Application.Services;
+﻿
+using ETicaretAPI.Insfracture.Operations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ETicaretAPI.Insfracture.Services
 {
-    public class FileService : IFileService
+    public class FileService
     {
         readonly IWebHostEnvironment _webHostEnvironment;
 
@@ -18,54 +19,67 @@ namespace ETicaretAPI.Insfracture.Services
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<bool> CopyFileAsync(string path, IFormFile file)
+     
+
+        async Task<String> FileReNameAsync(string path, string fileName, bool first = true)
         {
-            try
-            {
-                await using FileStream fileStream = new (path,FileMode.Create,FileAccess.Write,
-                    FileShare.None, 1024*1024, useAsync: false);
 
-                await fileStream.CopyToAsync(fileStream);
-                await fileStream.FlushAsync();
-                return true;
-            }
-            catch (Exception ex)
+            string newFileName = await Task.Run<string>(async () =>
             {
+                string extension = Path.GetExtension(fileName);
+                string newFileName = string.Empty;
+                if (first)
+                {
+                    string oldName = Path.GetFileNameWithoutExtension(fileName);
+                    newFileName = $"{NameOperation.CharacterRegulatory(oldName)}{extension}";
+                }
+                else
+                {
+                    newFileName = fileName;
+                    int indextNo1 = newFileName.IndexOf('-');
+                    if (indextNo1 == -1)
+                        newFileName = $"{Path.GetFileNameWithoutExtension(fileName)}-2{extension}";
+                    else
+                    {
+                        int lastIndex = 0;
+                        while (true)
+                        {
+                            lastIndex = indextNo1;
+                            indextNo1 = newFileName.IndexOf("-", indextNo1 + 1);
+                            if (indextNo1 == -1)
+                            {
+                                indextNo1 = lastIndex;
+                                break;
+                            }
+                        }
 
-                throw ex;
-            }
+                        int indexNo2 = newFileName.IndexOf(".");
+                        string fileNo = newFileName.Substring(indextNo1 + 1, indexNo2 - indextNo1 - 1);
+
+                        if (int.TryParse(fileNo, out int _fileNo))
+                        {
+                            _fileNo++;
+                            newFileName = newFileName.Remove(indextNo1 + 1, indexNo2 - indextNo1 - 1).Insert(indextNo1 + 1, _fileNo.ToString());
+                        }
+                        else
+                        {
+                            newFileName = $"{Path.GetFileNameWithoutExtension(fileName)}-2{extension}";
+                        }
+                    }
+
+                };
+                if (File.Exists($"{path}\\{newFileName}"))
+                        return await FileReNameAsync(path, newFileName, false);
+                    else
+                        return newFileName;
+
+               
+
+              
+            });
+            return newFileName;
         }
 
-        public Task<String> FileReNameAsync(string fileName)
-        {
-            throw new NotImplementedException();
-        }
 
-   
-
-        async Task<List<(string fileName, string path)>> IFileService.UploadAsync(string path, IFormFileCollection files)
-        {
-            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, path);
-            if (!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
-
-            List<(string fileName, string path)> datas = new();
-            List<bool> results = new();
-
-            foreach (IFormFile file in files)
-            {
-                string fileNewName = await FileReNameAsync(file.FileName);
-
-                bool result = await CopyFileAsync($"{uploadPath}/{fileNewName}", file);
-
-                datas.Add((fileNewName, $"{uploadPath}/{fileNewName}"));
-                results.Add(result);    
-            }
-
-            if (results.TrueForAll(x => x.Equals(true)))
-                return datas;
-
-            return null;
-        }
     }
 }

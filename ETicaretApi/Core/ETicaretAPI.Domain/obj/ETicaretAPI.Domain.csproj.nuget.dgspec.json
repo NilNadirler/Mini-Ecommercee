@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {}
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
         "projectName": "ETicaretAPI.Domain",
-        "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
+        "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
         "packagesPath": "C:\\Users\\nilna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\obj\\",
+        "outputPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,24 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

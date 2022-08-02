@@ -22,3 +22,15 @@ C:\Users\nilna\Desktop\mini-ecommerce-nil\ETicaretApi\Core\ETicaretAPI.Domain\ob
 C:\Users\nilna\Desktop\mini-ecommerce-nil\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.dll
 C:\Users\nilna\Desktop\mini-ecommerce-nil\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ref\ETicaretAPI.Domain.dll
 C:\Users\nilna\Desktop\mini-ecommerce-nil\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.pdb
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\bin\Debug\net6.0\ETicaretAPI.Domain.deps.json
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\bin\Debug\net6.0\ETicaretAPI.Domain.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\bin\Debug\net6.0\ref\ETicaretAPI.Domain.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\bin\Debug\net6.0\ETicaretAPI.Domain.pdb
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.AssemblyInfoInputs.cache
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.AssemblyInfo.cs
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.csproj.CoreCompileInputs.cache
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ref\ETicaretAPI.Domain.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.pdb
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Core\ETicaretAPI.Domain\obj\Debug\net6.0\ETicaretAPI.Domain.csproj.AssemblyReference.cache

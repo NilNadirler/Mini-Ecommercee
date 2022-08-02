@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="kullaniciAdi" class="form-label" kullaniciAdi
+        >Username & Email</label
+      >
+      <input
+        #txtUserNameOrEmail
+        type="text"
+        class="form-control"
+        id="username"
+      />
+      <small class="form-text text-muted invalid-feedback"
+        >Lütfen boş geçmeyiniz.</small
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Sifre</label>
+      <input #txtPassword type="password" class="form-control" id="password" />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="login(txtUserNameOrEmail.value, txtPassword.value)"
+    >
+      Login
+    </button>
+  </div>
+  <div class="col-3"></div>
+</div>

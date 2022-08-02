@@ -1,3 +1,4 @@
+import { DialogService } from './../../services/common/dialog.service';
 import { ToastrService } from 'ngx-toastr';
 
 import {
@@ -16,7 +17,10 @@ import {
   Output,
   Renderer2,
 } from '@angular/core';
-import { __core_private_testing_placeholder__ } from '@angular/core/testing';
+import {
+  async,
+  __core_private_testing_placeholder__,
+} from '@angular/core/testing';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClientService } from 'src/app/services/common/http-client.service';
@@ -33,7 +37,8 @@ export class DeleteDirective {
     private httpClientService: HttpClientService,
     private spinner: NgxSpinnerService,
     public dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private dialogService: DialogService
   ) {
     const img = _render.createElement('img');
     img.setAttribute('src', '../../../../../assets/delete.png');
@@ -50,49 +55,40 @@ export class DeleteDirective {
 
   @HostListener('click')
   async onClick() {
-    this.openDialog(async () => {
-      this.spinner.show(SpinnerType.BallAtom);
-      const td: HTMLTableCellElement = this.element.nativeElement;
-      await this.httpClientService
-        .delete(
-          {
-            controller: this.controller,
-          },
-          this.id
-        )
-        .subscribe(
-          () => {
-            $(td.parentElement).animate(
-              {
-                opacity: 0,
-                left: '+=50',
-                height: 'toogle',
-              },
-              700,
-              () => {
-                this.callback.emit();
-                this.toastr.success('Basariyla silindi');
-              }
-            );
-          },
-          (errorMessage: string | undefined) => {
-            this.spinner.hide(SpinnerType.BallAtom);
-            this.toastr.error('Hata');
-          }
-        );
-    });
-  }
-
-  openDialog(afterClosed: any): void {
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      width: '250px',
+    this.dialogService.openDialog({
+      componentType: DeleteDialogComponent,
       data: DeleteState.Yes,
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result == DeleteState.Yes) {
-        afterClosed();
-      }
+      afterClosed: async () => {
+        this.spinner.show(SpinnerType.BallAtom);
+        const td: HTMLTableCellElement = this.element.nativeElement;
+        await this.httpClientService
+          .delete(
+            {
+              controller: this.controller,
+            },
+            this.id
+          )
+          .subscribe(
+            () => {
+              $(td.parentElement).animate(
+                {
+                  opacity: 0,
+                  left: '+=50',
+                  height: 'toogle',
+                },
+                700,
+                () => {
+                  this.callback.emit();
+                  this.toastr.success('Basariyla silindi');
+                }
+              );
+            },
+            (errorMessage: string | undefined) => {
+              this.spinner.hide(SpinnerType.BallAtom);
+              this.toastr.error('Hata');
+            }
+          );
+      },
     });
   }
 }

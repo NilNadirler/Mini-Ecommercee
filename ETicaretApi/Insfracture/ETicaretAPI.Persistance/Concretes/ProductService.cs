@@ -1,4 +1,4 @@
-﻿using ETicaretDbContext.Application.Abstraction;
+﻿
 using ETicaretDbContext.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ETicaretDbContext.Persistance.Concrete
 {
-    public class ProductService : IProductService
+    public class ProductService 
     {
         public List<Product> GetProducts()
         {

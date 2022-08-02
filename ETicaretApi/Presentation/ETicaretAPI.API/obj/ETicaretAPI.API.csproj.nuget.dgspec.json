@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj": {}
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj",
+        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj",
         "projectName": "ETicaretAPI.Application",
-        "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj",
+        "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj",
         "packagesPath": "C:\\Users\\nilna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\obj\\",
+        "outputPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {
-                "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj"
+              "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {
+                "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj"
               }
             }
           }
@@ -59,9 +59,29 @@
               "target": "Package",
               "version": "[11.0.2, )"
             },
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.7, )"
             }
           },
           "imports": [
@@ -83,14 +103,14 @@
         }
       }
     },
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
         "projectName": "ETicaretAPI.Domain",
-        "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
+        "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\ETicaretAPI.Domain.csproj",
         "packagesPath": "C:\\Users\\nilna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Domain\\obj\\",
+        "outputPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -121,6 +141,24 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -140,14 +178,14 @@
         }
       }
     },
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj": {
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj",
+        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj",
         "projectName": "ETicaretAPI.Insfracture",
-        "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj",
+        "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj",
         "packagesPath": "C:\\Users\\nilna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\obj\\",
+        "outputPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -167,8 +205,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj"
+              "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
+                "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj"
               }
             }
           }
@@ -183,6 +221,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.13.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
             "Microsoft.AspNetCore.Mvc.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -190,6 +240,10 @@
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[2.2.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
             }
           },
           "imports": [
@@ -211,14 +265,14 @@
         }
       }
     },
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj": {
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj",
         "projectName": "ETicaretAPI.Persistance",
-        "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj",
+        "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj",
         "packagesPath": "C:\\Users\\nilna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\obj\\",
+        "outputPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -238,8 +292,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj"
+              "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
+                "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj"
               }
             }
           }
@@ -254,9 +308,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.7, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -294,14 +356,14 @@
         }
       }
     },
-    "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj": {
+    "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj",
+        "projectUniqueName": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj",
         "projectName": "ETicaretAPI.API",
-        "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj",
+        "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\ETicaretAPI.API.csproj",
         "packagesPath": "C:\\Users\\nilna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Presentation\\ETicaretAPI.API\\obj\\",
+        "outputPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Presentation\\ETicaretAPI.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -321,14 +383,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj"
+              "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj": {
+                "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj"
               },
-              "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj": {
-                "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj"
+              "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj": {
+                "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Insfracture\\ETicaretAPI.Insfracture.csproj"
               },
-              "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj": {
-                "projectPath": "C:\\Users\\nilna\\Desktop\\mini-ecommerce-nil\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj"
+              "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj": {
+                "projectPath": "C:\\Users\\nilna\\Desktop\\Mini-Ecommerce\\ETicaretApi\\Insfracture\\ETicaretAPI.Persistance\\ETicaretAPI.Persistance.csproj"
               }
             }
           }
@@ -343,6 +405,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

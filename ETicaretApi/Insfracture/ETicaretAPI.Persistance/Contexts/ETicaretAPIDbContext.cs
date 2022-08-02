@@ -1,5 +1,9 @@
-﻿using ETicaretDbContext.Domain.Entities;
+﻿
+
+using ETicaretAPI.Domain.Entities.Identifier;
+using ETicaretDbContext.Domain.Entities;
 using ETicaretDbContext.Domain.Entities.Common;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,9 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ETicaretDbContext.Persistance.Contexts
 {
-    public class ETicaretAPIDbContext : DbContext
+    public class ETicaretAPIDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public ETicaretAPIDbContext(DbContextOptions options) : base(options)
         {
@@ -19,6 +24,15 @@ namespace ETicaretDbContext.Persistance.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Domain.Entities.File> Files { get; set; }
+
+        public DbSet<ProductImageFile> ProductImageFiles { get; set; }
+        public DbSet<InvoiceFile> InvoiceFiles { get; set; }
+
+
+
+
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken=default)
         {
