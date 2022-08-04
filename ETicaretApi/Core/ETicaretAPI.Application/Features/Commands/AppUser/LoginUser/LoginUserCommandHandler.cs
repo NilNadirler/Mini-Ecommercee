@@ -1,7 +1,7 @@
 ﻿using ETicaretAPI.Application.Abstractions.Token;
 using ETicaretAPI.Application.DTOs;
 using ETicaretAPI.Application.Exceptions;
-using ETicaretAPI.Domain.Entities.Identifier;
+
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +15,13 @@ namespace ETicaretAPI.Application.Features.Commands.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommanRequest, LoginUserCommandResponse>
     {
-
-        readonly UserManager<AppUser> _userManager;
-        readonly SignInManager<AppUser> _signInManager;
+        readonly UserManager<Domain.Entities.Identifier.AppUser> _userManager;
+        readonly SignInManager<Domain.Entities.Identifier.AppUser> _signInManager;
         readonly ITokenHandler _tokenHandler;
 
-        public LoginUserCommandHandler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenHandler tokenHandler)
+
+
+        public LoginUserCommandHandler(UserManager<Domain.Entities.Identifier.AppUser> userManager, SignInManager<Domain.Entities.Identifier.AppUser> signInManager, ITokenHandler tokenHandler)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -29,7 +30,7 @@ namespace ETicaretAPI.Application.Features.Commands.LoginUser
 
         public async  Task<LoginUserCommandResponse> Handle(LoginUserCommanRequest request, CancellationToken cancellationToken)
         {
-           AppUser user =  await _userManager.FindByNameAsync(request.UsernameOrEmail);
+            Domain.Entities.Identifier.AppUser user =  await _userManager.FindByNameAsync(request.UsernameOrEmail);
 
             if(user == null)
               user =  await _userManager.FindByEmailAsync(request.UsernameOrEmail);

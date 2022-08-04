@@ -20,10 +20,14 @@
       <label for="password" class="form-label">Sifre</label>
       <input #txtPassword type="password" class="form-control" id="password" />
     </div>
+
+    <asl-google-signin-button></asl-google-signin-button>
+
     <button
       type="submit"
       class="btn btn-primary"
       (click)="login(txtUserNameOrEmail.value, txtPassword.value)"
+      style="margin: 5px"
     >
       Login
     </button>

@@ -39,13 +39,28 @@
                 class="nav-link active"
                 aria-current="page"
                 routerLink="register"
+                *ngIf="!authService.isAuthtenticated"
                 >Register</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="login"
+              <a
+                class="nav-link active"
+                aria-current="page"
+                *ngIf="!authService.isAuthtenticated"
+                routerLink="login"
                 >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                style="color: red"
+                (click)="signOut()"
+                *ngIf="authService.isAuthtenticated"
+                >Cikis Yap</a
               >
             </li>
             <li>
@@ -54,6 +69,7 @@
                   routerLink="admin"
                   class="btn btn-outline-success"
                   type="submit"
+                  *ngIf="authService.isAuthtenticated"
                 >
                   Yonetim Paneli
                 </button></a

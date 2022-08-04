@@ -1,3 +1,7 @@
+import {
+  AuthService,
+  _isAuthtenticated,
+} from './../../services/common/auth.service';
 import { SpinnerType } from './../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -17,38 +21,24 @@ import {
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private jwtHelper: JwtHelperService,
-    private router: Router,
+    private spinner: NgxSpinnerService,
     private toastrService: ToastrService,
-    private spinner: NgxSpinnerService
+    private router: Router
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     this.spinner.show(SpinnerType.BallAtom);
 
-    const token: string = localStorage.getItem('accessToken');
-
-    // const decodeToken = this.jwtHelper.decodeToken(token);
-    // const expirationDate: Data = this.jwtHelper.getTokenExpirationDate(token);
-    let expired: boolean;
-
-    try {
-      expired = this.jwtHelper.isTokenExpired(token);
-    } catch {
-      expired = true;
-    }
-
-    if (!token || expired) {
+    if (!_isAuthtenticated) {
       this.router.navigate(['login'], {
-        queryParams: {
-          returnUrl: state.url,
-        },
+        queryParams: { returnUrl: state.url },
       });
 
-      this.toastrService.error('Oturumunuz acmaniz gerekiyor! Yetkisiz erisim');
+      this.toastrService.warning('Oturumunuz acmaniz gerekiyor!');
     }
 
     this.spinner.hide(SpinnerType.BallAtom);
-    return null;
+
+    return true;
   }
 }

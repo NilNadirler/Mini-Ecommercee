@@ -164,3 +164,7 @@ C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\b
 C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Google.Apis.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Google.Apis.Auth.dll
+C:\Users\nilna\Desktop\Mini-Ecommerce\ETicaretApi\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Google.Apis.Core.dll
