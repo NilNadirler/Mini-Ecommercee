@@ -1,5 +1,4 @@
-﻿using ETicaretAPI.Application.DTOs;
-using ETicaretAPI.Application.DTOs.User;
+﻿using ETicaretAPI.Application.Abstractions.Services.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ETicaretAPI.Application.Abstractions.Services
 {
-    public interface IUserService
+    public interface IAuthService : IExternalAuthentication, IInternalAuthentication
     {
-        Task<CreateUserResponse> CreateAsync(CreateUser model);
+
     }
 }

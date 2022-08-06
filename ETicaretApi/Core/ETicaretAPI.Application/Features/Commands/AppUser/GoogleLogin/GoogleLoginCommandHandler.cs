@@ -1,6 +1,7 @@
-﻿using ETicaretAPI.Application.Abstractions.Token;
+﻿using ETicaretAPI.Application.Abstractions.Services;
+using ETicaretAPI.Application.Abstractions.Token;
 using ETicaretAPI.Application.DTOs;
-using Google.Apis.Auth;
+
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -13,69 +14,23 @@ namespace ETicaretAPI.Application.Features.Commands.AppUser.GoogleLogin
 {
     public class GoogleLoginCommandHandler : IRequestHandler<GoogleLoginCommandRequest, GoogleLoginCommandResponse>
     {
-        private readonly UserManager<Domain.Entities.Identifier.AppUser> _userManager;
-        private ITokenHandler _tokenHandler;
 
-        public GoogleLoginCommandHandler(UserManager<Domain.Entities.Identifier.AppUser> userManager, ITokenHandler tokenHandler)
+        readonly IAuthService _authService;
+
+        public GoogleLoginCommandHandler(IAuthService authService)
         {
-            _userManager = userManager;
-            _tokenHandler = tokenHandler;
+            _authService = authService;
         }
+
+    
 
         public async Task<GoogleLoginCommandResponse> Handle(GoogleLoginCommandRequest request, CancellationToken cancellationToken)
         {
-            var settings = new GoogleJsonWebSignature.ValidationSettings()
-
+            var token = await _authService.GoogleLoginAsync(request.IdToken, 15);
+            return new()
             {
-                Audience = new List<string> { "339603251856-a0gvi2h94cpp76b0jvqiq509oe9nn2li.apps.googleusercontent.com" }
+                Token = token,
             };
-
-
-            var payload = await GoogleJsonWebSignature.ValidateAsync(request.IdToken, settings);
-
-            var info = new UserLoginInfo(request.Provider, payload.Subject, request.Provider);
-
-            Domain.Entities.Identifier.AppUser user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
-
-            bool result = user != null;
-
-
-
-            if (user == null)
-            {
-                user = await _userManager.FindByEmailAsync(payload.Email);
-                if (user == null)
-                {
-                    user = new()
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        Email = payload.Email,
-                        UserName = payload.Email,
-                        FullName = payload.Name
-                    };
-
-                    var identityResult = await _userManager.CreateAsync(user);
-
-                    result = identityResult.Succeeded;
-                }
-            }
-            if (result)
-            {
-                await _userManager.AddLoginAsync(user, info);
-                Token token = _tokenHandler.CreateAccessToken(5);
-
-                return new()
-                {
-                    Token = token
-                };
-            }
-
-
-            else
-                throw new Exception("Invalid external auth");
-
-
-
 
         }
     }

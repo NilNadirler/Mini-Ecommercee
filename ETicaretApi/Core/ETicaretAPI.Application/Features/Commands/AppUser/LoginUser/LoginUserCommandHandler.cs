@@ -1,4 +1,5 @@
-﻿using ETicaretAPI.Application.Abstractions.Token;
+﻿using ETicaretAPI.Application.Abstractions.Services;
+using ETicaretAPI.Application.Abstractions.Token;
 using ETicaretAPI.Application.DTOs;
 using ETicaretAPI.Application.Exceptions;
 
@@ -15,44 +16,22 @@ namespace ETicaretAPI.Application.Features.Commands.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommanRequest, LoginUserCommandResponse>
     {
-        readonly UserManager<Domain.Entities.Identifier.AppUser> _userManager;
-        readonly SignInManager<Domain.Entities.Identifier.AppUser> _signInManager;
-        readonly ITokenHandler _tokenHandler;
+        readonly IAuthService _authService;
 
-
-
-        public LoginUserCommandHandler(UserManager<Domain.Entities.Identifier.AppUser> userManager, SignInManager<Domain.Entities.Identifier.AppUser> signInManager, ITokenHandler tokenHandler)
+        public LoginUserCommandHandler(IAuthService authService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _tokenHandler = tokenHandler;
+            _authService = authService;
         }
 
         public async  Task<LoginUserCommandResponse> Handle(LoginUserCommanRequest request, CancellationToken cancellationToken)
         {
-            Domain.Entities.Identifier.AppUser user =  await _userManager.FindByNameAsync(request.UsernameOrEmail);
+            var token = await _authService.LoginAsync(request.UsernameOrEmail, request.Password, 15);
 
-            if(user == null)
-              user =  await _userManager.FindByEmailAsync(request.UsernameOrEmail);
-
-            if (user == null)
-                throw new UserNotFoundException();
-
-            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
-            if (result.Succeeded)
+            return new LoginUserCommandResponse()
             {
-               Token token = _tokenHandler.CreateAccessToken(5);
-
-                return new LoginUserSuccessCommandResponse()
-                {
-                    Token = token
-                };
-            }
-
-            return new LoginUserErrorCommandResponse()
-            {
-                Message = "Kullanici Adi hatali"
+                Token = token
             };
+
 
         }
     }

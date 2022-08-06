@@ -1,3 +1,4 @@
+import { HttpErrorHandlerInterceptorService } from './services/common/http-error-handler-interceptor.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -60,6 +61,11 @@ import {
         ],
         onError: (err) => console.log(err),
       } as SocialAuthServiceConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorHandlerInterceptorService,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

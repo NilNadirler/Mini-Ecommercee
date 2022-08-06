@@ -1,3 +1,4 @@
+import { UserAuthService } from './../../../services/common/models/user-auth.service';
 import { AuthService } from './../../../services/common/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from './../../../services/common/model/user.service';
@@ -17,7 +18,7 @@ import {
 })
 export class LoginComponent extends BaseComponent implements OnInit {
   constructor(
-    private userService: UserService,
+    private userAuthService: UserAuthService,
     spinner: NgxSpinnerService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
@@ -28,7 +29,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     socialAuthService.authState.subscribe(async (user: SocialUser) => {
       console.log(user);
       this.showSpinner(SpinnerType.BallAtom);
-      await userService.googleLogin(user, () => {
+      await userAuthService.googleLogin(user, () => {
         this.authService.idendtityCheck();
         this.hideSpinner(SpinnerType.BallAtom);
       });
@@ -39,7 +40,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   async login(usernameOrEmail: string, password: string) {
     this.showSpinner(SpinnerType.BallAtom);
-    await this.userService.login(usernameOrEmail, password, () => {
+    await this.userAuthService.login(usernameOrEmail, password, () => {
       this.authService.idendtityCheck();
       this.activatedRoute.queryParams.subscribe((params) => {
         const returnUrl: string = params['returnUrl'];
